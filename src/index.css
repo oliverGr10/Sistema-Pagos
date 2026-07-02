@@ -11,6 +11,14 @@ html, body {
   overscroll-behavior: none;
 }
 
+/* Bloquea el scroll del fondo mientras un sheet/modal está abierto */
+body.sheet-open {
+  overflow: hidden;
+}
+body.sheet-open main {
+  overflow: hidden !important;
+}
+
 /* Scroll invisible (oculta la barra pero mantiene el scroll) */
 .no-scrollbar {
   scrollbar-width: none;          /* Firefox */

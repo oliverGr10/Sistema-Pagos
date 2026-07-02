@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TrendingUp, Plus, Trash2, CheckCircle2, Clock, User, Search } from 'lucide-react'
 import { supabase, type Venta, type Cliente } from '../lib/supabase'
+import { useSheetScrollLock } from '../lib/useSheetScrollLock'
 
 function fmt(n: number) {
   return new Intl.NumberFormat('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(n)
@@ -162,6 +163,9 @@ export default function Ventas({ mes, dia }: { mes: string; dia?: string | null 
   const [form, setForm] = useState(EMPTY)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const sheetRef = useRef<HTMLDivElement>(null)
+
+  useSheetScrollLock(showForm, sheetRef)
 
   const fetchVentas = () => {
     setLoading(true)
@@ -367,6 +371,7 @@ export default function Ventas({ mes, dia }: { mes: string; dia?: string | null 
             <motion.div
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
+              ref={sheetRef}
               className="bg-white w-full lg:w-[420px] h-[88dvh] lg:h-full rounded-t-3xl lg:rounded-none p-5 lg:p-6 shadow-2xl overflow-y-auto overscroll-contain no-scrollbar flex flex-col"
             >
               <div className="flex items-start justify-between gap-3 mb-5">

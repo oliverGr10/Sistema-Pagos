@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Receipt, Plus, Trash2, ArrowDownLeft, User } from 'lucide-react'
 import { supabase, type Gasto } from '../lib/supabase'
+import { useSheetScrollLock } from '../lib/useSheetScrollLock'
 
 function fmt(n: number) {
   return new Intl.NumberFormat('es-PE', { minimumFractionDigits: 2 }).format(n)
@@ -115,6 +116,9 @@ export default function Gastos({ mes, dia }: { mes: string; dia?: string | null 
   const [form, setForm] = useState(EMPTY)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const sheetRef = useRef<HTMLDivElement>(null)
+
+  useSheetScrollLock(showForm, sheetRef)
 
   const fetchGastos = () => {
     setLoading(true)
@@ -287,6 +291,7 @@ export default function Gastos({ mes, dia }: { mes: string; dia?: string | null 
             <motion.div
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
+              ref={sheetRef}
               className="bg-white w-full lg:w-[420px] h-[88dvh] lg:h-full rounded-t-3xl lg:rounded-none p-5 lg:p-6 shadow-2xl overflow-y-auto overscroll-contain no-scrollbar flex flex-col"
             >
               <div className="flex items-start justify-between gap-3 mb-5">
