@@ -287,14 +287,14 @@ export default function Gastos({ mes, dia }: { mes: string; dia?: string | null 
             <motion.div
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="bg-white w-full lg:w-[420px] h-[90vh] lg:h-full rounded-t-3xl lg:rounded-none p-6 shadow-2xl overflow-y-auto flex flex-col"
+              className="bg-white w-full lg:w-[420px] h-[90vh] lg:h-full rounded-t-3xl lg:rounded-none p-5 lg:p-6 shadow-2xl overflow-y-auto flex flex-col"
             >
-              <div className="flex items-center justify-between mb-5">
-                <div>
+              <div className="flex items-start justify-between gap-3 mb-5">
+                <div className="min-w-0">
                   <h2 className="text-base font-bold text-gray-900">Registrar Gasto</h2>
                   <p className="text-xs text-gray-400 mt-0.5">Los campos con * son obligatorios</p>
                 </div>
-                <button onClick={() => setShowForm(false)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 text-xl leading-none">×</button>
+                <button onClick={() => setShowForm(false)} className="w-8 h-8 shrink-0 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 text-xl leading-none">×</button>
               </div>
 
               {error && (
