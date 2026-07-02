@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #F8FAFC;
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #D1D5DB; }
+
+@media print {
+  /* Ocultar sidebar, header, y elementos de navegación */
+  aside, header, nav, .print\:hidden { display: none !important; }
+  /* El main ocupa toda la página */
+  body { background: white !important; }
+  .flex.h-screen { display: block !important; }
+  .flex-1.flex.flex-col { display: block !important; }
+  main { overflow: visible !important; padding: 0 !important; }
+}
