@@ -167,8 +167,8 @@ export default function Gastos({ mes, dia }: { mes: string; dia?: string | null 
     <div className="p-4 lg:p-6 space-y-5 max-w-[1400px]">
 
       {/* Header de página */}
-      <div className="flex items-center justify-between">
-        <div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
           <h2 className="text-lg font-bold text-gray-900">Gastos</h2>
           <p className="text-sm text-gray-400 mt-0.5">{displayGastos.length} registros {dia ? 'este día' : 'este mes'}</p>
         </div>
@@ -184,7 +184,7 @@ export default function Gastos({ mes, dia }: { mes: string; dia?: string | null 
             setForm({ ...EMPTY, fecha: defaultDate })
             setError('')
           }}
-          className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors"
+          className="flex items-center gap-1.5 bg-red-500 hover:bg-red-600 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors shrink-0 whitespace-nowrap"
         >
           <Plus size={15} /> Agregar Gasto
         </button>

@@ -233,13 +233,13 @@ export default function Ventas({ mes, dia }: { mes: string; dia?: string | null 
   return (
     <div className="p-4 lg:p-6 space-y-5 max-w-[1400px]">
 
-      <div className="flex items-center justify-between">
-        <div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
           <h2 className="text-lg font-bold text-gray-900">Ventas</h2>
           <p className="text-sm text-gray-400 mt-0.5">{displayVentas.length} facturas {dia ? 'este día' : 'este mes'}</p>
         </div>
         <button onClick={openForm}
-          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors"
+          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors shrink-0 whitespace-nowrap"
         >
           <Plus size={15} /> Agregar Venta
         </button>

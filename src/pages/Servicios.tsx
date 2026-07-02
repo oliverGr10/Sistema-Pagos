@@ -93,13 +93,13 @@ export default function Servicios() {
     <div className="p-4 lg:p-6 space-y-6 max-w-2xl">
 
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
           <h2 className="text-lg font-bold text-gray-900">Servicios</h2>
           <p className="text-sm text-gray-400 mt-0.5">{servicios.length} servicios disponibles</p>
         </div>
         <button onClick={() => { setShowForm(true); setForm(EMPTY) }}
-          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors"
+          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors shrink-0 whitespace-nowrap"
         >
           <Plus size={15} /> Agregar
         </button>

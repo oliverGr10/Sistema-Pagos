@@ -87,13 +87,13 @@ export default function Clientes() {
     <div className="p-4 lg:p-6 space-y-5 max-w-[1400px]">
 
       {/* Header */}
-      <div className="flex items-center justify-between">
-        <div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="min-w-0">
           <h2 className="text-lg font-bold text-gray-900">Clientes</h2>
           <p className="text-sm text-gray-400 mt-0.5">{clientes.length} clientes registrados</p>
         </div>
         <button onClick={() => { setShowForm(true); setNuevoNombre('') }}
-          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors"
+          className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-3 py-2 rounded-xl transition-colors shrink-0 whitespace-nowrap"
         >
           <Plus size={15} /> Agregar Cliente
         </button>
