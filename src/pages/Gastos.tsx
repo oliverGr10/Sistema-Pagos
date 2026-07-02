@@ -287,7 +287,7 @@ export default function Gastos({ mes, dia }: { mes: string; dia?: string | null 
             <motion.div
               initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 300 }}
-              className="bg-white w-full lg:w-[420px] h-[88dvh] lg:h-full rounded-t-3xl lg:rounded-none p-5 lg:p-6 shadow-2xl overflow-y-auto flex flex-col"
+              className="bg-white w-full lg:w-[420px] h-[88dvh] lg:h-full rounded-t-3xl lg:rounded-none p-5 lg:p-6 shadow-2xl overflow-y-auto overscroll-contain no-scrollbar flex flex-col"
             >
               <div className="flex items-start justify-between gap-3 mb-5">
                 <div className="min-w-0">

@@ -7,6 +7,19 @@ html, body, #root {
   overflow-x: hidden;
 }
 
+html, body {
+  overscroll-behavior: none;
+}
+
+/* Scroll invisible (oculta la barra pero mantiene el scroll) */
+.no-scrollbar {
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari */
+}
+
 body {
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
