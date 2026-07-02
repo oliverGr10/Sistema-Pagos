@@ -17,23 +17,6 @@ function currentMonth() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
 }
 
-function monthLabel(mes: string) {
-  const [y, m] = mes.split('-').map(Number)
-  return new Date(y, m - 1).toLocaleDateString('es-PE', { month: 'long', year: 'numeric' })
-}
-
-function prevMonth(mes: string) {
-  const [y, m] = mes.split('-').map(Number)
-  const d = new Date(y, m - 2)
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
-}
-
-function nextMonth(mes: string) {
-  const [y, m] = mes.split('-').map(Number)
-  const d = new Date(y, m)
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`
-}
-
 export default function App() {
   const [user, setUser] = useState<User | null>(null)
   const [authLoading, setAuthLoading] = useState(true)
